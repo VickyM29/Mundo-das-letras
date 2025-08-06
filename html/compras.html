@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mundo das letras - Loja de livros e artigos literários">
+    <meta name="keywords" content="livros, artigos literários, loja de livros">
+    <title>Carrinho</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="../img/Icone2.png" type="icon/x-image">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body {
+        background-color: #e9dcb732;
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    form {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bg-body-tertiary {
+        background-color: #e9dcb732 !important;
+        border-bottom: 1px solid #c0eac7;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    }
+
+
+    .btn-success {
+        background-color: #164d53;
+        border-color: #164d53;
+        color: #fff;
+    }
+
+    .btn-success:hover {
+        background-color: #164d5343;
+        border-color: #164d5343;
+    }
+
+    .btn-outline-success {
+        color: #164d53;
+        border-color: #164d53;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #164d5343;
+        color: white;
+        border-color: #164d5343;
+    }
+
+    .table thead {
+        background-color: #d3f4e4;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+        border-color: #c0eac7;
+    }
+
+    .title span {
+        color: #164d53;
+        font-weight: 600;
+    }
+
+    .empty {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px dashed #c0eac7;
+        border-radius: 8px;
+        text-align: center;
+        color: #666;
+    }
+
+    .link-success {
+        color: #164d53;
+    }
+</style>
+
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="d-flex-align-items-center">
+                <img src="../img/icone.png" alt="Icone do mundo das letras">
+                <a class="navbar-brand" href="#"> Mundo das letras</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="gap: 15px; align-items: center; margin-right: 122px;">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="loja.html">Loja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ajuda.html">Ajuda</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="compras.html" class="position-relative me-3">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span id="contador-carrinho"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                style="font-size: 0.8rem;">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                    </li>
+                    <button id="toggle-dark" class="btn btn-outline-secondary ms-3" type="button">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="title"> <span>Carrinho de Compras</span></h2>
+
+        <div id="empty-box" class="empty d-none">
+            Seu carrinho está vazio. <a href="loja.html" class="link-success fw-semibold">Voltar para a loja</a>.
+        </div>
+
+        <div class="table-responsive">
+            <table id="cart-table" class="table table-bordered align-middle d-none">
+                <thead class="table-light">
+                    <tr>
+                        <th>Produto</th>
+                        <th style="width:140px;">Quantidade</th>
+                        <th style="width:150px;">Preço</th>
+                        <th style="width:150px;">Subtotal</th>
+                        <th style="width:120px;">Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3" class="text-end">Total:</th>
+                        <th>R$ <span id="cart-total">0,00</span></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="meuModalLabel">Resumo da Compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modal-cart-items">
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Resumo do Pedido</h6>
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td>Subtotal:</td>
+                                        <td class="text-end" id="modal-subtotal">R$ 0,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frete:</td>
+                                        <td class="text-end">R$ 0,00</td>
+                                    </tr>
+                                    <tr class="fw-bold">
+                                        <td>Total:</td>
+                                        <td class="text-end" id="modal-total">R$ 0,00</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h6>Opções de Pagamento</h6>
+                                <div id="payment-options">
+                                </div>
+                                <hr>
+                                <h6>Parcelamento</h6>
+                                <div id="parcelamento-options">
+                                    <button type="button" class="btn btn-outline-primary w-100 mb-2"
+                                        onclick="toggleInstallmentOptions()">
+                                        Escolher opções de parcelamento
+                                    </button>
+                                    <div id="installment-details" class="d-none">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-3">
+                            <small><i class="fas fa-info-circle"></i> Parcelamento sem juros em até 12x no cartão de
+                                crédito</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar
+                            Comprando</button>
+                        <a href="finalizada.html" class="btn btn-success">Finalizar Compra</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3" style="margin-bottom: 2rem;">
+            <a href="loja.html" class="btn btn-outline-success">Continuar comprando</a>
+            <button id="checkout-btn" type="button" class="btn btn-primary">Finalizar compra</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        const catalogo = {
+            "ainda-estou-aqui": { nome: "Ainda estou aqui", preco: 45.00, },
+            "a-noiva": { nome: "A Noiva", preco: 38.50 },
+            "assistente-do-vilao": { nome: "Assistente do Vilão", preco: 35.90 },
+            "aprendiz-do-vilao": { nome: "Aprendiz do Vilão", preco: 38.00 },
+            "crime-e-castigo": { nome: "Crime e Castigo", preco: 20.00 },
+            "a-empregada": { nome: "A Empregada", preco: 30.00 },
+            "o-menino-vestido": { nome: "O Menino Vestido", preco: 19.90 },
+            "hipotese-amor": { nome: "Hipótese do Amor", preco: 40.50 },
+            "hora-da-estrela": { nome: "A Hora da Estrela", preco: 21.00 },
+            "jantar-secreto": { nome: "Jantar Secreto", preco: 32.75 },
+            "e-assim-que-acaba": { nome: "É Assim que Acaba", preco: 35.00 },
+            "paciente": { nome: "Paciente", preco: 25.20 },
+            "paciente-silenciosa": { nome: "A Paciente Silenciosa", preco: 33.99 },
+            "noites-brancas": { nome: "Noites Brancas", preco: 13.75 },
+            "metamorfose": { nome: "A Metamorfose", preco: 13.75 },
+            "mulheres-que-correm-com-os-lobos": { nome: "Mulheres que Correm com os Lobos", preco: 55.00 },
+            "garota-do-lago": { nome: "A Garota do Lago", preco: 19.90 },
+            "vermelho-branco": { nome: "Vermelho Branco e Sangue Azul", preco: 22.90 },
+            "cancao-ninar": { nome: "Canção Ninar Menino Grande", preco: 16.99 },
+            "mandibula-caim": { nome: "Mandíbula de Caim", preco: 9.90 },
+        };
+
+
+        const money = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        const qs = (sel) => document.querySelector(sel);
+
+
+        let cart = [];
+
+
+        function loadCart() {
+            try { cart = JSON.parse(localStorage.getItem('cart')) || []; }
+            catch (e) { cart = []; }
+        }
+
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+
+        function addFromQuery() {
+            const params = new URLSearchParams(window.location.search);
+            const pid = (params.get('produto') || '').toLowerCase().trim();
+            if (!pid || !catalogo[pid]) return;
+
+            const existente = cart.find(i => i.id === pid);
+            if (existente) {
+                existente.quantidade += 1;
+            } else {
+                const p = catalogo[pid];
+                cart.push({ id: pid, nome: p.nome, quantidade: 1, preco: p.preco });
+            }
+            saveCart();
+
+            history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        function renderCart() {
+            const tbody = qs('#cart-items');
+            const table = qs('#cart-table');
+            const empty = qs('#empty-box');
+
+            tbody.innerHTML = '';
+
+            if (!cart.length) {
+                table.classList.add('d-none');
+                empty.classList.remove('d-none');
+                qs('#cart-total').textContent = '0,00';
+                return;
+            }
+
+            table.classList.remove('d-none');
+            empty.classList.add('d-none');
+
+            let total = 0;
+            cart.forEach((item, idx) => {
+                const subtotal = item.quantidade * item.preco;
+                total += subtotal;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+          <td>${item.nome}</td>
+          <td>
+            <div class="input-group input-group-sm" style="max-width: 130px;">
+              <button class="btn btn-outline-secondary" type="button" onclick="alterarQtd(${idx}, -1)">−</button>
+              <input type="number" class="form-control text-center qty" min="1" value="${item.quantidade}"
+                     onchange="alterarQtdDireta(${idx}, this.value)">
+              <button class="btn btn-outline-secondary" type="button" onclick="alterarQtd(${idx}, 1)">+</button>
+            </div>
+          </td>
+          <td>${money(item.preco)}</td>
+          <td>${money(subtotal)}</td>
+          <td><button class="btn btn-danger btn-sm" onclick="removeItem(${idx})">Remover</button></td>
+        `;
+                tbody.appendChild(tr);
+            });
+
+            qs('#cart-total').textContent = total.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            saveCart();
+        }
+
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function alterarQtd(index, delta) {
+            const nova = Math.max(1, (cart[index].quantidade || 1) + delta);
+            cart[index].quantidade = nova;
+            renderCart();
+        }
+
+        function alterarQtdDireta(index, val) {
+            const nova = Math.max(1, parseInt(val || '1', 10));
+            cart[index].quantidade = nova;
+            renderCart();
+        }
+
+
+        function renderModalCart() {
+            const modalItems = qs('#modal-cart-items');
+            modalItems.innerHTML = '';
+
+            if (!cart.length) {
+                modalItems.innerHTML = '<p class="text-center text-muted">Seu carrinho está vazio.</p>';
+                qs('#modal-subtotal').textContent = 'R$ 0,00';
+                qs('#modal-total').textContent = 'R$ 0,00';
+                return;
+            }
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const itemSubtotal = item.quantidade * item.preco;
+                subtotal += itemSubtotal;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'd-flex justify-content-between align-items-center mb-3 p-3 border rounded';
+                itemDiv.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <h6 class="mb-1">${item.nome}</h6>
+                            <small class="text-muted">Quantidade: ${item.quantidade}</small>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <h6 class="mb-0">${money(itemSubtotal)}</h6>
+                        <small class="text-muted">${money(item.preco)} cada</small>
+                    </div>
+                `;
+                modalItems.appendChild(itemDiv);
+            });
+
+            qs('#modal-subtotal').textContent = money(subtotal);
+            qs('#modal-total').textContent = money(subtotal);
+
+            renderPaymentOptions();
+            renderInstallmentOptions(subtotal);
+        }
+
+        function renderPaymentOptions() {
+            const paymentContainer = qs('#payment-options');
+            paymentContainer.innerHTML = `
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="creditCard" checked>
+                    <label class="form-check-label" for="creditCard">
+                     Cartão de Crédito
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="debitCard" value="debitCard">
+                    <label class="form-check-label" for="debitCard">
+                        Cartão de Débito
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="pix" value="pix">
+                    <label class="form-check-label" for="pix">
+                     PIX
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="boleto" value="boleto">
+                    <label class="form-check-label" for="boleto">
+                         Boleto Bancário
+                    </label>
+                </div>
+            `;
+        }
+
+        function renderInstallmentOptions(total) {
+            const installmentContainer = qs('#parcelamento-options');
+            installmentContainer.innerHTML = '';
+
+            const maxInstallments = 12;
+            const minInstallmentValue = 5.00;
+            const maxPossibleInstallments = Math.min(maxInstallments, Math.floor(total / minInstallmentValue));
+
+            if (maxPossibleInstallments <= 1) {
+                installmentContainer.innerHTML = `
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="installments" id="installment1" value="1" checked>
+                        <label class="form-check-label" for="installment1">
+                            À vista - ${money(total)}
+                        </label>
+                    </div>
+                `;
+                return;
+            }
+
+            for (let i = 1; i <= maxPossibleInstallments; i++) {
+                const installmentValue = total / i;
+                const installmentDiv = document.createElement('div');
+                installmentDiv.className = 'form-check mb-2';
+
+                let labelText = `${i}x de ${money(installmentValue)}`;
+                if (i === 1) {
+                    labelText += ' (à vista)';
+                } else if (i <= 12) {
+                    labelText += ' sem juros';
+                }
+
+                installmentDiv.innerHTML = `
+                    <input class="form-check-input" type="radio" name="installments" id="installment${i}" value="${i}" ${i === 1 ? 'checked' : ''}>
+                    <label class="form-check-label" for="installment${i}">
+                        ${labelText}
+                    </label>
+                `;
+                installmentContainer.appendChild(installmentDiv);
+            }
+        }
+
+        qs('#checkout-btn').addEventListener('click', () => {
+            if (!cart.length) {
+                alert('Seu carrinho está vazio! Adicione itens antes de prosseguir.');
+                return;
+            }
+
+            renderModalCart();
+            const modal = new bootstrap.Modal(qs('#meuModal'));
+            modal.show();
+
+            cart = [];
+            saveCart();
+            renderCart();
+        });
+
+
+        window.removeItem = removeItem;
+        window.alterarQtd = alterarQtd;
+        window.alterarQtdDireta = alterarQtdDireta;
+
+
+        loadCart();
+        addFromQuery();
+        renderCart();
+
+        function atualizarContadorCarrinho() {
+            try {
+                const carrinho = JSON.parse(localStorage.getItem("cart")) || [];
+                const totalItens = carrinho.reduce((acc, p) => acc + (p.quantidade || 0), 0);
+                const contador = document.getElementById("contador-carrinho");
+                if (contador) {
+                    contador.innerText = totalItens;
+                    contador.style.display = totalItens > 0 ? "inline" : "none";
+                }
+            } catch (e) {
+                console.error("Erro ao atualizar o contador do carrinho:", e);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            atualizarContadorCarrinho();
+            renderCartDropdown();
+
+            const toggle = document.getElementById('cartDropdownToggle');
+            if (toggle) {
+                toggle.addEventListener('click', renderCartDropdown);
+            }
+        });
+
+        window.addEventListener('storage', () => {
+            atualizarContadorCarrinho();
+            renderCartDropdown();
+        });
+
+        function renderCartDropdown() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsList = document.getElementById('cart-items-list');
+            if (!cartItemsList) return;
+
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = 'Seu carrinho está vazio.';
+            } else {
+                cartItemsList.innerHTML = cart.map(item => `
+            <div class="mb-2">
+                <strong>${item.nome || item.name || 'Produto'}</strong><br>
+                <small>Qtd: ${item.quantidade || item.qtd || 1}</small>
+            </div>
+        `).join('');
+            }
+        }
+
+    </script>
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="#" class="logo">
+                <img src="../img/Icone.png" alt="logo" />
+            </a>
+
+            <div class="share">
+                <a href="https://www.facebook.com/?locale=pt_BR"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com"> <i class="fa-brands fa-instagram"></i></a>
+                <a href="x.com/?lang=pt"> <i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.whatsapp.com/?lang=pt_BR"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="#">Sobre</a>
+                <a href="#">Menu</a>
+                <a href="#">Endereço</a>
+            </nav>
+
+            <p class="footer-copy">
+                © 2025 Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
